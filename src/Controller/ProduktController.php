@@ -14,6 +14,7 @@
     use Symfony\Component\Routing\Annotation\Route;
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+    use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
     use Symfony\Component\HttpFoundation\JsonResponse;
     use Symfony\Component\HttpFoundation\AcceptHeader;
@@ -26,7 +27,7 @@
     // Logger
     use Psr\Log\LoggerInterface;
 
-    class ProduktController extends Controller {
+    class ProduktController extends AbstractController {
         private $logger;
         private $serializer;
 
@@ -63,7 +64,7 @@
         }
 
         /**
-         * @Route("/produkt", methods={"GET"})
+         * @Route("/produkt", methods={"GET"}, schemes={"https"})
          */
         public function get_doctrine() {
 
